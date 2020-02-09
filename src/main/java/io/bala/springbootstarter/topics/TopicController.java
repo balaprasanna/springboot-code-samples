@@ -17,10 +17,7 @@ public class TopicController {
 	// Do the dependency injection
 	@Autowired 
 	private TopicService topicService;
-	
-	@Autowired 
-	private TopicRepository topicRepository;
-	
+
 	
 	@RequestMapping("/topics")
 	public List<Topic> getAllTopics() {
@@ -49,19 +46,14 @@ public class TopicController {
 	}
 	
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/topics/v2")
-	public void addTopicv2(@RequestBody Topic t) {
-		topicRepository.save(t);
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/topics/find/{name}")
-	public List<Topic> getTopicsByName(@PathVariable String name) {
-		return topicRepository.findByName(name);
-	}
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/topics/find")
-	public List<Topic> getTopicsByNameQuery(@RequestParam(name = "name") String name) {
-		return topicRepository.findByName(name);
-	}
+//	@RequestMapping(method = RequestMethod.GET, value = "/topics/find/{name}")
+//	public List<Topic> getTopicsByName(@PathVariable String name) {
+//		return topicRepository.findByName(name);
+//	}
+//	
+//	@RequestMapping(method = RequestMethod.GET, value = "/topics/find")
+//	public List<Topic> getTopicsByNameQuery(@RequestParam(name = "name") String name) {
+//		return topicRepository.findByName(name);
+//	}
 	
 }
