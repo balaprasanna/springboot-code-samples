@@ -16,20 +16,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private MyUserDetailsService userDetailsService;
+	//	UserDetailsService
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// TODO Auto-generated method stub
 		// super.configure(auth);
 
-		/*
-		 *  IN Memory Authentication
-		auth.inMemoryAuthentication()
-			.withUser("bala1").password("{noop}bala1").roles("USER")
-			.and()
-			.withUser("bala2").password("{noop}bala2").roles("ADMIN");
-		*/
+//		// IN Memory Authentication
+//		auth.inMemoryAuthentication()
+//			.withUser("bala1").password("{noop}bala1").roles("USER")
+//			.and()
+//			.withUser("bala2").password("{noop}bala2").roles("ADMIN");
+		
 		
 		auth.userDetailsService( userDetailsService);
 	}
